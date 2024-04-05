@@ -1,0 +1,141 @@
+
+  
+  label {
+    margin-top: 10px;
+    /* font-weight: bold; */
+  }
+  
+  input,
+  select,
+  textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  select {
+    width: 100%;
+  }
+  
+  textarea {
+    height: 100px;
+  }
+  
+  input:required:invalid,
+  select:required:invalid,
+  textarea:required:invalid {
+    border-color:black;
+  }
+  
+  input:required:valid,
+  select:required:valid,
+  textarea:required:valid {
+    border-color: #ccc;
+  }
+  
+.details{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+}
+.detail{
+  width: 50%;
+  text-align: left;
+}
+.details label{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  border: none;
+    outline: none; 
+    width: 80%;
+    height: auto;
+    margin: 10px;
+    border-radius: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    padding: 2%;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  
+
+}
+
+tr{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  border: none;
+    outline: none; 
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    border-radius: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    padding: 2%;
+
+}
+td{
+  text-align: left;
+  margin-left: 10%;
+}
+
+.medical-form-data{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-image:url("../../assets/images/regbg4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+
+.wrapper2{
+  border-radius: 10px solid red;
+  /* margin-top: 7%;
+  margin-bottom: 7%; */
+  width: 50%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 5%;
+  padding-bottom: 3%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.wrapper2 td{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 16px;
+   
+}
+.boldd{
+  font-weight: bold;
+}
+.wrapper2 tr{
+
+ 
+  width: 100%;
+  height: auto;
+ 
+  
+} 
+
+.wrapper2 table{
+  width: 100%;
+}
+.wrapper2 td{
+  padding-top: 10%;
+}

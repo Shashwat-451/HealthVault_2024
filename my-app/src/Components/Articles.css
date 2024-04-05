@@ -1,0 +1,33 @@
+/* CSS */
+/* Style for the container */
+#articleContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Style for each article div */
+  .article {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Style for the Source */
+  .article div:nth-child(odd) {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Style for the Author, Title, and Description */
+  .article div:nth-child(even) {
+    margin-left: 20px;
+  }
+  
+  /* Style for the Content */
+  .article .content {
+    margin-left: 20px;
+    white-space: pre-line; /* Preserve line breaks */
+  }
+  

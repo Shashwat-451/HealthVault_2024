@@ -1,0 +1,96 @@
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+.parent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-image:url("../../assets/images/regbg7.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+form{
+  
+  display:flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.btnn:hover{
+
+  border: 2px solid black;
+  border-radius: 150px;
+}
+.wrapper{
+  border-radius: 10px solid red;
+  margin-top: 7%;
+  margin-bottom: 7%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.wrapper textarea{
+  width: 70%;
+   
+  border: none;
+  outline: none; 
+  height: auto;
+  margin: 10px;
+  border-radius: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.wrapper input{
+  width: 70%;
+  border: none;
+  outline: none; 
+  height: auto;
+  margin: 10px;
+  border-radius: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.wrapper select{
+
+  width: 70%;
+  border: none;
+  outline: none; 
+  height: auto;
+  margin: 10px;
+  border-radius: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+  .inputtt{
+    width: 70%;
+  }
+ }
+
+@media all and (min-width: 768px) and (max-width: 1024px) { }
+
+@media all and (min-width: 480px) and (max-width: 768px) { }
+
+@media all and (max-width: 480px) { }
