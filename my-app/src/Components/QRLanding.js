@@ -7,7 +7,7 @@ function QRLanding() {
 
 //fetch("https://healthvaultfinal2.onrender.com/getAllUser",
 useEffect(() => {
-    fetch("https://healthvaultfinal2.onrender.com/getAllUser", {
+    fetch("https://healthvault-2024.onrender.com/getAllUser", {
       method: 'GET',
     })
       .then((res) => {

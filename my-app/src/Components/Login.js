@@ -36,7 +36,7 @@ const LoginPage = () => {
   
   
     const login = () => {
-      axios.post("https://healthvaultfinal2.onrender.com/login", user)
+      axios.post("https://healthvault-2024.onrender.com/login", user)
         .then(res => {
           if (res.status >= 200 && res.status < 300) {
             alert(res.data.message);

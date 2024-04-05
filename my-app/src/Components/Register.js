@@ -44,7 +44,7 @@ const Register = () => {
     const { name, email, password, reEnterPassword } = user
     if (name && email && password && (password === reEnterPassword)) {
       // alert("posted")
-      axios.post("https://healthvaultfinal2.onrender.com/register", user)
+      axios.post("https://healthvault-2024.onrender.com/register", user)
         .then(res => {
           alert(res.data.message)
 
