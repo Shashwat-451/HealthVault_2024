@@ -26,7 +26,7 @@ const QrCodeGenerator = () => {
   };
   console.log(data);
   const generateQRCode = () => {
-    const url = `https://healthvault.netlify.app/${data.email}/${data._id}`;
+    const url = `https://master--healthvaultn.netlify.app/${data.email}/${data._id}`;
     return <QRCode value={url} />;
   };
 
