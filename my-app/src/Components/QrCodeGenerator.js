@@ -6,26 +6,32 @@ import './QRCode.css';
 import { setLoggedIn } from '../Redux/Slices/AuthSlice';
 const QrCodeGenerator = () => {
   const [email, setEmail] = useState('');
-  const [data, setData] = useState('');
+  const [data, setData] = useState({});
  
-    
-  const user=useSelector(state=>state.user);
-  console.log("ewoiho",user);
-  // useEffect hook to update data when user changes
+  const [user,setUser]=useState({})
+  // const user=useSelector(state=>state.user);
+  // console.log("ewoiho",user);
+  
+  // useEffect(() => {
+  //   setData(user);
+  // }, [user]);
+
+  
+  // useEffect(() => {
+  //   const userFromStorage = localStorage.getItem("user");
+  //   if (userFromStorage) {
+  //     setData(JSON.parse(userFromStorage));
+  //   }
+  // }, []);
   useEffect(() => {
-    // Update data when user changes
-    setData(user);
-  }, [user]); // Only run this effect when user changes
-
-  useEffect(() => {
-    const user2=localStorage.getItem("user");
-    if(data==''){
-    setData(user2)}
-  }, []); // Only run this effect when user changes
+    const userFromStorage = localStorage.getItem("user");
+    if (userFromStorage) {
+      setUser(JSON.parse(userFromStorage));
+    }
+  }, []);
 
 
-
-  console.log("popvsm",data._id)
+  console.log("popvsm",user)
   
   // console.log("kvknr",data);
 
@@ -34,7 +40,8 @@ const QrCodeGenerator = () => {
   };
   console.log(data);
   const generateQRCode = () => {
-    const url = `https://master--healthvaultn.netlify.app/qrlanding/${data.email}/${data._id}`;
+    const url = `https://master--healthvaultn.netlify.app/qrlanding/${user[0].email}/${user[0]._id}`;
+    console.log("Data is",user[0].email);
     return <QRCode value={url} />;
   };
 
