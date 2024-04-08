@@ -23,11 +23,6 @@ const Appointments = (props) => {
     // console.log("ewoiho",user);
     // useEffect hook to update data when user changes
    
-  
-      
-      
- 
-
     
     useEffect(() => {
       const appointmentsFromStorage = localStorage.getItem("appointments");

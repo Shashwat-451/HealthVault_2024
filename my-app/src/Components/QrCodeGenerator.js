@@ -1,48 +1,31 @@
 import React, { useState,useEffect } from 'react';
 import QRCode from 'qrcode.react';
-import {Link} from 'react-router-dom';
-import { useDispatch,useSelector } from 'react-redux';
 import './QRCode.css';
-import { setLoggedIn } from '../Redux/Slices/AuthSlice';
-const QrCodeGenerator = () => {
-  const [email, setEmail] = useState('');
-  const [data, setData] = useState({});
- 
-  const [user,setUser]=useState({})
-  // const user=useSelector(state=>state.user);
-  // console.log("ewoiho",user);
-  
-  // useEffect(() => {
-  //   setData(user);
-  // }, [user]);
 
+const QrCodeGenerator = () => {
+const [user,setUser]=useState({})
   
-  // useEffect(() => {
-  //   const userFromStorage = localStorage.getItem("user");
-  //   if (userFromStorage) {
-  //     setData(JSON.parse(userFromStorage));
-  //   }
-  // }, []);
+
   useEffect(() => {
+    console.log("checking Useeffect")
     const userFromStorage = localStorage.getItem("user");
     if (userFromStorage) {
       setUser(JSON.parse(userFromStorage));
     }
-  }, []);
+  },[]);
 
 
   console.log("popvsm",user)
   
-  // console.log("kvknr",data);
 
-  const handleChange = (e) => {
-    setEmail(e.target.value);
-  };
-  console.log(data);
   const generateQRCode = () => {
-    const url = `https://master--healthvaultn.netlify.app/qrlanding/${user[0].email}/${user[0]._id}`;
-    console.log("Data is",user[0].email);
-    return <QRCode value={url} />;
+    if(user && user[0])
+    {
+      const url = `https://master--healthvaultn.netlify.app/qrlanding/${user[0].email}/${user[0]._id}`;
+      console.log("Data is",user[0].email);
+      return <QRCode value={url} />;
+    }
+   
   };
 
   return (
