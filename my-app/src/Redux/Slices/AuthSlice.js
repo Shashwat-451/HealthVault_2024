@@ -4,9 +4,11 @@ const initialState={
     registerData:null,
     signupData:null,
     setLoginUser:null,
+    appointments:null,
+    setAppointments:null,
     loggedIn:false,
     user:null,
-    token:localStorage.getItem("token")?JSON.parse(localStorage.getItem("token")):null,
+    // token:localStorage.getItem("token")?JSON.parse(localStorage.getItem("token")):null,
 };
 
 const authSlice= createSlice({
@@ -26,10 +28,13 @@ const authSlice= createSlice({
         setLoggedIn(state,action){
             state.loggedIn=action.payload;
         },
+        setAppointments(state,action){
+            state.appointments=action.payload;
+        },
     },
 
 
 });
 
-export const {setSignupData,setToken,setLoginUser,setLoggedIn}=authSlice.actions;
+export const {setSignupData,setToken,setLoginUser,setLoggedIn,setAppointments}=authSlice.actions;
 export default authSlice.reducer;

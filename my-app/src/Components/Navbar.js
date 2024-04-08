@@ -68,11 +68,10 @@ const Navbar = () => {
             <li>
               <NavLink to="/medform">Edit Record</NavLink>
             </li>
-            <li>
-              <NavLink to="/qr">Get QR</NavLink>
-            </li>
+           
             {!loggedIn && (
               <>
+             
                 <li>
                   <NavLink to="/login">Sign In</NavLink>
                 </li>
@@ -82,11 +81,20 @@ const Navbar = () => {
               </>
             )}
             {loggedIn && (
-              <li>
+              <>
+                <li>
+              <NavLink to="/qr">Get QR</NavLink>
+            </li>
+            <li>
+              <NavLink to="/appointments">Appointments</NavLink>
+            </li>
+            <li>
                 <NavLink to="/" onClick={()=>handleLogout()}>
                   Logout
                 </NavLink>
               </li>
+              </>
+             
             )}
           </ul>
         </div>

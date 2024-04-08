@@ -1,63 +1,188 @@
-/* App.css */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.wrapper{
+  margin: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color:rgb(255, 199, 32);
+}
+.container{
+  /* width: 1200px; */
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 
-.App {
-    text-align: center;
-    margin-top: 20px;
-  }
+
+.quote{
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  color: white;
+  font-size: 11px;
+  margin-top: 30px;
+  margin-bottom: 17px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.author{
+  color: white;
+  font-size: 25px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  margin-top: 19px;
+}
+
+.formm{
+  display: flex;
+  flex-direction: column;
+width: 50%;
+align-items: center;
+background-color:rgb(255, 199, 32);
+  justify-content: center;
+  gap:1.5rem;
+  margin-bottom: 50px;
+
+}
+.inputt{
+  width: 30%;
+  padding: 1rem;
+  border-radius: 20px;
+ border: none;
+ outline: none;
+}
+.formm button{
+  padding: 12px;
+  border-radius: 15px;
+  width:auto;
+  /* margin-bottom: 30px; */
+  margin-top: 2rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.5rem;
+}
+.formm button:hover{
+  background-color: black;
+  color: white;
+ 
+}
+.Logo{
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #333333;
+  /* margin: 90px; */
+  margin-top: 4%;
+  margin-bottom: 4%;
+
+
+}
+.Logo img{
+  width: 60px;
+
+ 
+}
+
+.AddQuote{
+ 
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #333333;
+  margin: 50px;
+}
+
+details{
+  display: flex;
+  width: auto;
+  border: none;
+  outline: none; 
   
-  h1 {
-    margin-bottom: 20px;
-  }
+  height: auto;
   
-  .new-appointment-inputs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
+  border-radius: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.details h2{
+  color: black;
+  text-align: left;
+  font-size: 1.5rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.cards{
+  margin: 30px;
+  width: 30%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  flex-direction: column;
+  text-align: center;
+  background-color: white;
   
-  .new-appointment-inputs input,
-  .new-appointment-inputs textarea,
-  .new-appointment-inputs button {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .new-appointment-inputs button {
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .new-appointment-inputs button:hover {
-    background-color: #0056b3;
-  }
-  
-  .appointment-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .appointment-item {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    width: 250px;
-    min-height: 150px;
-  }
-  
-  .appointment-item div {
-    margin-bottom: 8px;
-  }
-  
-  textarea {
-    resize: vertical;
-    height: 80px;
-  }
-  
+
+}
+.details h2{
+  display: flex;
+
+}
+
+.details-table {
+  border-collapse: collapse; /* Collapse borders between table cells */
+  width: 100%; /* Set table width to fill container */
+}
+
+.details-table td {
+  padding: 10px; /* Add padding to table cells */
+  padding-left: 20px;
+  padding-right: 0%;
+  border: none; /* Remove borders */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 14px;
+}
+
+.details-table td:first-child {
+  text-align: left; /* Align first column content to the right */
+  font-weight: bold;
+}
+
+.details-table td:last-child {
+  text-align: left; /* Align last column content to the left */
+}
+
+
+.btn button{
+  padding: 12px;
+  border-radius: 15px;
+  width:auto;
+
+  /* margin-bottom: 30px; */
+  margin-top: 2rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.5rem;
+}
+
+.btn button:hover{
+  background-color: black;
+  color: white;
+}

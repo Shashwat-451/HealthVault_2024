@@ -10,6 +10,7 @@ import LoginPage from './Components/Login';
 import Register from './Components/Register';
 import Articles from './Components/Articles';
 import Appointments from './Appointments';
+
 import Navbar from './Components/Navbar';
 import QRCodeGen2 from './Components/QRCodeGen2';
 import QRLanding from './Components/QRLanding';
@@ -24,7 +25,7 @@ function App() {
         {/* */}
        
         <Route path="/" element={<Home/>}/>
-        <Route path="/appointment" element={<Appointments/>}/>
+
         <Route path="/articles" element={<Articles/>}/>
         <Route path="/medform" element={<MedicalForm/>}/> 
         <Route path="/patientdata" element={<PatientData/>}/>
@@ -32,6 +33,7 @@ function App() {
         <Route path="/qrlanding/:param1/:param2" element={<QRLanding/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/appointments" element={<Appointments/>}/>
         {/* <Route path="/mumbai" element={<Home2Upper/>}/>
         <Route path="/delhi" element={<Delhi/>}/>
         <Route path="/kolkata" element={<Kolkata/>}/> */}

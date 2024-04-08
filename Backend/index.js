@@ -33,6 +33,18 @@ const userSchema = new mongoose.Schema({
 
 const User = new mongoose.model("User", userSchema)
 
+const appointmentSchema = new mongoose.Schema({
+  date: String,
+  time: String,
+  address: String,
+  doctor: String,
+  email:String
+
+})
+
+const  Appointment= new mongoose.model("Appointment", appointmentSchema)
+
+
 const patientSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
@@ -153,6 +165,54 @@ console.log(existinguser)
       });
 });
 
+app.post("/appointments", (req, res)=> {
+  
+  const {date,time,address,doctor,email} = req.body;
+  console.log("uiuhemail",email)
+  Patient.findOne({ email: email })
+    .then((existingUser) => {
+      if (!existingUser) {
+        res.send({ message: "User Not registered" });
+      } else {
+        const appointment = new Appointment({
+          date,
+          time,
+          address,
+          doctor,
+          email
+      
+        });
+        appointment.save()
+          .then(() => {
+            res.send({ message: "Data Inserted successfully" });
+          })
+          .catch((error) => {
+            res.send(error);
+          });
+      }
+    })
+    .catch((error) => {
+      console.error("Error querying user", error);
+    });
+});
+
+app.delete('/appointments/delete', async (req, res) => {
+  try {
+      const {doctor,time}=req.body;
+      console.log(doctor,time);
+      // Find the appointment by ID and delete it
+      const deletedAppointment = await Appointment.findOneAndDelete({doctor,time});
+      if (!deletedAppointment) {
+          return res.status(404).json({ message: 'Appointment not found' });
+      }
+      // If deletion is successful, send a success response
+      res.status(200).json({ message: 'Appointment deleted successfully' });
+  } catch (error) {
+      // If an error occurs, send a server error response
+      console.error(error);
+      res.status(500).json({ message: 'Server Error' });
+  }
+});
 
 app.post("/register", (req, res)=> {
     const { name, email, password } = req.body;
@@ -186,6 +246,17 @@ app.get("/getAllUser",async (req, res) => {
   // const email = req.params.email;
     try {
       const  allUser=await Patient.find();
+      // const allUser = await Patient.findOne({ email: email });
+      res.send({status:"ok",data:allUser});
+    } catch (error) {
+      console.log(error);
+    }
+})
+
+app.get("/getAllAppointments",async (req, res) => {
+  // const email = req.params.email;
+    try {
+      const  allUser=await Appointment.find();
       // const allUser = await Patient.findOne({ email: email });
       res.send({status:"ok",data:allUser});
     } catch (error) {

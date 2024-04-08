@@ -17,7 +17,15 @@ const QrCodeGenerator = () => {
     setData(user);
   }, [user]); // Only run this effect when user changes
 
-  // console.log("popvsm",data._id)
+  useEffect(() => {
+    const user2=localStorage.getItem("user");
+    if(data==''){
+    setData(user2)}
+  }, []); // Only run this effect when user changes
+
+
+
+  console.log("popvsm",data._id)
   
   // console.log("kvknr",data);
 
@@ -26,7 +34,7 @@ const QrCodeGenerator = () => {
   };
   console.log(data);
   const generateQRCode = () => {
-    const url = `https://master--healthvaultn.netlify.app/${data.email}/${data._id}`;
+    const url = `https://master--healthvaultn.netlify.app/qrlanding/${data.email}/${data._id}`;
     return <QRCode value={url} />;
   };
 
