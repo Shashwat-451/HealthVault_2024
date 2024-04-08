@@ -66,7 +66,7 @@ const Appointments = (props) => {
       
       try {
         // Send DELETE request to delete appointment by ID
-        await axios.delete(`http://localhost:9000/appointments/delete`,{
+        await axios.delete(`https://healthvault-2024.onrender.com/appointments/delete`,{
           data: { doctor, time }
         });
         // If deletion is successful, remove the appointment from the state

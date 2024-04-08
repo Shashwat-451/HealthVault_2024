@@ -37,7 +37,7 @@ const LoginPage = () => {
   }
 
   const fetchAppointmetsData = () => {
-    fetch("http://localhost:9000/getAllAppointments", {
+    fetch("https://healthvault-2024.onrender.com/getAllAppointments", {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -50,7 +50,7 @@ const LoginPage = () => {
   }
 
   const login = () => {
-    axios.post("http://localhost:9000/login", user)
+    axios.post("https://healthvault-2024.onrender.com/login", user)
       .then(res => {
         if (res.status >= 200 && res.status < 300) {
           alert(res.data.message);
