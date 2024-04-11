@@ -127,10 +127,13 @@ const Appointments = (props) => {
           My Appointments
         </h1>
         <div className="container ">
-
-          {appointments.map((element, index) => (
-
+          { user && user[0] && console.log("userrrr",user[0].email)}
+         
+          {appointments.map((element, index) =>  (
+            // console.log("element",element.email) &&
+          element && element.email && user && user[0] && user[0].email === element.email && (
             <div key={index} className="cards">
+              {console.log("email",element.email)}
               {console.log("indexwa", index)}
               <table className="details-table">
                 <tbody>
@@ -157,7 +160,7 @@ const Appointments = (props) => {
                 <button style={{ backgroundColor: "rgb(143, 109, 255)", color: "white", width: "100px" }} onClick={() => handleDelete(index, element.doctor, element.time)}>Delete</button>
               </div>
             </div>
-          ))}
+       )   ))}
         </div>
       </div>
 
