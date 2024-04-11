@@ -35,7 +35,7 @@ const Home = () => {
 
 
 
-      <div className='row' style={{ backgroundColor: "#8F6DFF",width:"100%",height: "auto", color: "white" }} >
+      <div className='row' style={{ margin:"0px",padding:"0px",backgroundColor: "#8F6DFF",width:"100%",height: "100vh", color: "white" }} >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }} className=" col-md-6  image">
           <img src="https://www.tamirapharmacy.com/login/svg/admin-img.svg" alt="img1" />
         </div>

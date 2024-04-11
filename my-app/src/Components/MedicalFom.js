@@ -1,9 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './MedicalForm.css'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
+
+
 const MedicalForm = () => {
+
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const [user,setUser]=useState({})
+  
+
+  useEffect(() => {
+   
+    const userFromStorage = localStorage.getItem("user");
+    if (userFromStorage) {
+      setUser(JSON.parse(userFromStorage));
+    }
+  },[]);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -41,6 +61,25 @@ const MedicalForm = () => {
     } catch (error) {
       console.error(error);
       alert('Failed to save patient information. Please try again later.');
+    }
+  };
+
+  const handleUpload = async () => {
+ 
+    try {
+      const formData = new FormData();
+     if(user && user[0])
+     {
+      formData.append('email',user[0].email)
+     } 
+      formData.append('file', file);
+
+      const response = await axios.post('https://healthvault-2024.onrender.com/fileUpload', formData);
+      console.log(response.data);
+      alert('File Uploaded successfully!');
+    } catch (error) {
+      console.error(error);
+      alert('Failed to upload File');
     }
   };
 
@@ -208,18 +247,20 @@ placeholder='Medications'
         ></textarea>
 
 
-
+  <div>
       <input
       style={{backgroundColor:"white"}}
       placeholder='Report'
       type='file'
         id="report"
-        name="report"
+        name="file"
         value={formData.report}
-        onChange={handleChange}
+        onChange={handleFileChange}
         required
+        
       ></input>
-
+      <button onClick={()=>handleUpload()}>Upload</button>
+      </div>
   <button className="btnclass" style={{color:"black",marginBottom:"3%"}} type="submit">Submit</button>
   </div>
 </form>

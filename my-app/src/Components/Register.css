@@ -5,8 +5,8 @@
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image:url("../../assets/images/regbg7.jpg");
- 
+  /* background-image:url("../../assets/images/regbg7.jpg"); */
+ background-color: rgb(143, 109, 255);
   background-repeat: no-repeat;
   background-size: cover;
   

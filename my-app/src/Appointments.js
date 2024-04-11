@@ -87,7 +87,7 @@ const Appointments = (props) => {
       setAppointments([...appointments, appointment]);
       localStorage.setItem("appointments", JSON.stringify([...appointments, appointment]));
       try {
-        const response = await axios.post('http://localhost:9000/appointments', appointment);
+        const response = await axios.post('https://healthvault-2024.onrender.com/appointments', appointment);
         console.log("aefe",response.data);
         alert('Patient information saved successfully!');
       } catch (error) {
@@ -104,18 +104,27 @@ const Appointments = (props) => {
     };
 
     return (
-      <div className="wrapper">
-         <div className="Logo">
-          Appointments
-        </div>
-        <form className="formm" onSubmit={handleSubmit}>
-            <input type="text" placeholder="Select Date" onBlur={(e) => (e.target.type = "text")} onFocus={(e) => (e.target.type = "date")}    id="date" name="date" value={appointment.date} onChange={handleChange}></input>
-            <input type="text" placeholder="Select Time" onBlur={(e) => (e.target.type = "text")} onFocus={(e) => (e.target.type = "time")}   id="time" name="time" value={appointment.time} onChange={handleChange}></input>
-            <input placeholder="Enter Address" type="text" id="address" name="address" value={appointment.address} onChange={handleChange}></input>
-            <input placeholder="Enter Doctor's Name" type="text" id="doctor" name="doctor" value={appointment.doctor} onChange={handleChange}></input>
-            <button type="submit">Save Appointment</button>
+      <div className="wrapper2">
+        
+        <div style={{width:"100%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}} className=" btn form-container">
+              <h1 className="Logo">
+         Save Appointment
+        </h1>
+        <form style={{display:"flex",flexDirection:"column",width:"70%",alignItems:"center",justifyContent:"center"}} onSubmit={handleSubmit}>
+            <input type="text" maxLength="15" placeholder="Select Date" onBlur={(e) => (e.target.type = "text")} onFocus={(e) => (e.target.type = "date")}    id="date" name="date" value={appointment.date} onChange={handleChange}></input>
+            <input type="text" maxLength="15" placeholder="Select Time" onBlur={(e) => (e.target.type = "text")} onFocus={(e) => (e.target.type = "time")}   id="time" name="time" value={appointment.time} onChange={handleChange}></input>
+            <input maxLength="15" placeholder="Enter Address" type="text" id="address" name="address" value={appointment.address} onChange={handleChange}></input>
+            <input maxLength="15" placeholder="Enter Doctor's Name" type="text" id="doctor" name="doctor" value={appointment.doctor} onChange={handleChange}></input>
+             <div>
+            <button style={{width:"100px"}} type="submit">Save</button>
+            </div>
         </form>
-        <div className="container">
+        </div>
+        <h1  style={{fontSize:"4rem",marginTop:"0px"}} className="Logo">
+         My Appointments
+        </h1>
+        <div className="container ">
+              
           {appointments.map((element, index) => (
       
             <div key={index} className="cards">
@@ -140,9 +149,9 @@ const Appointments = (props) => {
                   </tr>
                 </tbody>
               </table>
-              <div className="btn">
+              <div  className="btn">
               {console.log("verre",element._id)}
-                <button onClick={() => handleDelete(index,element.doctor,element.time)}>Remove Appointment</button>
+                <button style={{backgroundColor:"rgb(143, 109, 255)",color:"white",width:"100px"}} onClick={() => handleDelete(index,element.doctor,element.time)}>Delete</button>
               </div>
             </div>
           ))}

@@ -19,12 +19,12 @@
 .btnn {
   font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: white;
-  width: 150px;
+  width: 10rem;
   font-size: 20px;
-  padding: 5px;
+  padding: 3px;
   border: 5px solid white;
   border-radius: 40px;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 /* 1280-1024   - desktop (default grid) */

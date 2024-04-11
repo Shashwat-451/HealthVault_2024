@@ -11,15 +11,15 @@ import { faCopyright } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
     return (
-        <footer className="footer">
+        <footer style={{backgroundColor:"black"}} className="footer">
             <div className="footer-container">
                 <div className="item1">
 
                 </div>
-                <div className="item2">
-                    <span style={{ paddingRight: 5 }}>Copyright </span>
+                <div  className="item2">
+                    <span style={{ paddingRight: 5, fontFamily:"georgia"}}>Copyright </span>
                     <FontAwesomeIcon icon={faCopyright} />{" "}
-                    <span style={{ paddingLeft: 5 }}>
+                    <span style={{ paddingLeft: 5,fontFamily:"georgia" }}>
                         {new Date().getFullYear()} Health Vault. All Rights
                         Reserved.
                     </span>

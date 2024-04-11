@@ -38,7 +38,8 @@ const LoginPage = () => {
 
   const fetchAppointmetsData = () => {
     fetch("https://healthvault-2024.onrender.com/getAllAppointments", {
-      method: 'GET',
+      // fetch("http://localhost:9000/getAllAppointments", {  
+    method: 'GET',
     })
       .then((res) => res.json())
       .then((data) => {
@@ -88,7 +89,7 @@ const LoginPage = () => {
 
           <h1 style={{ marginBottom: "40px", marginTop: "30px", color: "white", fontFamily: "Georgia" }} className='text-center'>LOGIN</h1>
 
-          <input type="text" name="email" value={user.email} placeholder="Enter your Email" onChange={handleChange}></input>
+          <input style={{borderRadius: "50px"}} type="text" name="email" value={user.email} placeholder="Enter your Email" onChange={handleChange}></input>
 
 
           <input type="password" name="password" value={user.password} placeholder="Enter your password" onChange={handleChange}></input>

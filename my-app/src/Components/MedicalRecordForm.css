@@ -1,0 +1,137 @@
+.medical-record-form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none; 
+    background-color: rgb(143, 109, 255);
+  }
+
+  .medical-record-form h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    
+  }
+  .section-heading {
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 30px 0;
+    margin-bottom: 10px;
+    font-size:1.9rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color:black ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgb(143, 109, 255);
+    /* border-radius: 50px 50px 40px 40px; */
+    width: 60%;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  input[type="tel"],
+  input[type="email"],
+  textarea {
+    width: 80%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border: none;
+    outline: none; 
+    height: auto;
+    margin: 10px;
+   border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 12px;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 4px 8px 0 rgb(143, 109, 255), 0 6px 20px 0 rgb(143, 109, 255); */
+  
+  }
+  
+  input[type="file"]{
+    width: 50%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border: none;
+    outline: none; 
+    height: auto;
+    margin: 10px;
+   border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 12px;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  /* button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+  } */
+  
+  /* button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+   */
+  
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.btnnn button{
+    padding: 8px;
+    border-radius: 15px;
+    width:auto;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5rem;
+  }
+  
+  .btnnn button:hover{
+    background-color: black;
+    color: white;
+  }
+  .section-heading label{
+    font-size: 12px;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    color: #969494;
+  }
+  

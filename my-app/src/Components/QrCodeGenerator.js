@@ -31,15 +31,23 @@ const [user,setUser]=useState({})
   return (
     <>
   <div className='cont'>
+  <h1>QR Code</h1>
       <div className='row'>
+        
         <div className='col-md-6 qrimage '>
+          
            <img src='https://createqrcode.com/assets/img/features-2b.png' alt='img'></img>
         </div>
         <div className='col-md-6 qrcontent' >
-        <h1>QR Code</h1>
+       
       
       {generateQRCode()}
+      <div>
+          <h4 style={{textAlign:"center",color:"white",fontFamily:"Georgia",marginTop:"20px"}}>Scan the QR CODE to view your medical records</h4>
         </div>
+        </div>
+
+      
       </div>
       </div>
 

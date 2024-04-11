@@ -2,6 +2,9 @@ import express from "express"
 import cors from "cors"
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose"
+import fileUpload from 'express-fileupload';
+// import cloudinaryConnect from "./cloudinary.js"
+import cloudinary from 'cloudinary';
 // import cookieParser from 'cookie-parser';
 
 
@@ -9,10 +12,25 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
-// app.use(cookieParser());
+// app.use(fileUpload());
+// // app.use(cookieParser());
+// const fileupload = require("express-fileupload");
+app.use(fileUpload({
+    useTempFiles : true,
+    tempFileDir : '/tmp/'
+}));
 
+// cloudinaryConnect();
+cloudinary.config({
+  cloud_name: "dqpezswz3",
+  api_key: "566349751335648",
+  api_secret: "PKpnC2_urqTiv6YwojNb0EjSQf0"
+});
 
-mongoose.connect("mongodb+srv://healthvault-shashwat:kbFaNLLAS7ExuCAR@cluster0.5ffu791.mongodb.net/test?retryWrites=true&w=majority", {
+//this file upload uploads only on server
+//the file upload in cloudinary, first uploads on server then on cloudinary server and then deletes from server.
+
+mongoose.connect("mongodb+srv://healthvault_2024_shashwat:20242024@cluster0.5ffu791.mongodb.net/HealthVault_2024?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -44,22 +62,62 @@ const appointmentSchema = new mongoose.Schema({
 
 const  Appointment= new mongoose.model("Appointment", appointmentSchema)
 
+const fileSchema=new mongoose.Schema({
+  name:String,
+  fileUrl:String,
+  email:String
+})
+
+const File=mongoose.model("File",fileSchema);
+
 
 const patientSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
+    fullName: String,
     dateOfBirth: Date,
     gender: String,
-    email: String,
-    phone: String,
     address: String,
-    medicalHistory: String,
+    phoneNumber: String,
+    email: String,
     allergies: String,
-    previousTreatments: String,
+    medicalHistory: String,
+    familyHistory:String,
+    surgeries: String,
+    Immunizations: String,
     medications: String,
+    hospitalizations: String,
+    bloodPressure: String,
+    heartRate: String,
+    respiratoryRate:String,
+    bodyTemperature: String,
+    progressNotes: String,
+    consultationReports: String,
+    insuranceProvider:String,
+    policyNumber: String,
+    copaymentInfo: String,
+    emergencyContacts: String,
+    lifeStyleHabits: String,
+    occupationalHistory: String,
+    dietaryPreferences: String,
+    bloodGroup: String,
+    labResults: String,
+    imagingReports: String,
+    ecgReports: String,
+    biopsyResults: String,
   });
   
   const Patient = new mongoose.model('Patient', patientSchema);
+
+//   async function uploadFileToCloudinary(file, folder, quality){
+//     const options = {folder};
+//     console.log("temp file path", file.tempFilePath);
+
+//     if(quality) {
+//         options.quality = quality;
+//     }
+
+//     options.resource_type = "auto";
+//     return await cloudinary.uploader.upload(file.tempFilePath, options);
+// }
 
 let sharedVariable;
 function setSharedVariable(req, res, next) {
@@ -130,7 +188,39 @@ console.log(existinguser)
 );
   
   app.post("/patientData", (req, res)=> {
-    const { firstName,lastName,dateOfBirth,gender, email,phone,address,medicalHistory,allergies,previousTreatments,medications } = req.body;
+    const {
+      fullName,
+            dateOfBirth,
+            gender,
+            address,
+            phoneNumber,
+            email,
+            allergies,
+            medicalHistory,
+            familyHistory,
+            surgeries,
+            Immunizations,
+            medications,
+            hospitalizations,
+            bloodPressure,
+            heartRate,
+            respiratoryRate,
+            bodyTemperature,
+            progressNotes,
+            consultationReports,
+            insuranceProvider,
+            policyNumber,
+            copaymentInfo,
+            emergencyContacts,
+            lifeStyleHabits,
+            occupationalHistory,
+            dietaryPreferences,
+            bloodGroup,
+            labResults,
+            imagingReports,
+            ecgReports,
+            biopsyResults,
+     } = req.body;
 
     Patient.findOne({ email: email })
       .then((existingUser) => {
@@ -138,17 +228,37 @@ console.log(existinguser)
           res.send({ message: "User already registered" });
         } else {
           const patient = new Patient({
-            firstName,
-            lastName,
+            fullName,
             dateOfBirth,
             gender,
-            email,
-            phone,
             address,
-            medicalHistory,
+            phoneNumber,
+            email,
             allergies,
-            previousTreatments,
+            medicalHistory,
+            familyHistory,
+            surgeries,
+            Immunizations,
             medications,
+            hospitalizations,
+            bloodPressure,
+            heartRate,
+            respiratoryRate,
+            bodyTemperature,
+            progressNotes,
+            consultationReports,
+            insuranceProvider,
+            policyNumber,
+            copaymentInfo,
+            emergencyContacts,
+            lifeStyleHabits,
+            occupationalHistory,
+            dietaryPreferences,
+            bloodGroup,
+            labResults,
+            imagingReports,
+            ecgReports,
+            biopsyResults
         
           });
           patient.save()
@@ -164,6 +274,93 @@ console.log(existinguser)
         console.error("Error querying user", error);
       });
 });
+
+// app.post("/fileUpload",async(req,res)=>{
+//   const file = req.files.file;
+  
+//   try {
+
+//     //fetch filefrom request
+    
+//     console.log("FILE AAGYI JEE -> ",file);
+
+
+//     //create path where file need to be stored on server
+//     let path = __dirname + "/files/" + Date.now() + `.${file.name.split('.')[1]}`;
+//     console.log("PATH-> ", path)
+
+//     //add path to the move fucntion
+//     file.mv(path , (err) => {
+//         console.log(err);
+//     });
+
+//     //create a successful response
+//     res.json({
+//         success:true,
+//         message:'Local File Uploaded Successfully',
+//     });
+
+// }
+// catch(error) {
+//     console.log("Not able to upload the file on server")
+//     console.log(error);
+// }
+
+// //Uploading to cloudinary
+// const response = await uploadFileToCloudinary(file, "HealthVault");
+//         console.log(response);
+
+
+// })
+
+// const fileSchema = new mongoose.Schema({
+//   name: String,
+//   fileUrl: String,
+//   email: String
+// });
+
+// const File = mongoose.model("File", fileSchema);
+
+app.post("/fileUpload", async (req, res) => {
+  try {
+      if (!req.files || Object.keys(req.files).length === 0) {
+          return res.status(400).json({ message: 'No files were uploaded.' });
+      }
+
+      const file = req.files.file;
+      console.log(file);
+
+      // Uploading to cloudinary
+      const response = await uploadFileToCloudinary(file, "HealthVault");
+      console.log(response);
+
+      // Save file details to MongoDB if needed
+      const newFile = new File({
+          name: file.name,
+          fileUrl: response.secure_url,
+          email: req.body.email // assuming you're also sending email from the frontend
+      });
+      await newFile.save();
+
+      res.json({ message: 'File uploaded successfully', fileUrl: response.secure_url });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Failed to upload file' });
+  }
+});
+
+async function uploadFileToCloudinary(file, folder, quality) {
+  const options = { folder };
+
+  if (quality) {
+      options.quality = quality;
+  }
+
+  options.resource_type = "auto";
+  return await cloudinary.uploader.upload(file.tempFilePath, options);
+}
+
+
 
 app.post("/appointments", (req, res)=> {
   
@@ -247,6 +444,14 @@ app.get("/getAllUser",async (req, res) => {
     try {
       const  allUser=await Patient.find();
       // const allUser = await Patient.findOne({ email: email });
+      res.send({status:"ok",data:allUser});
+    } catch (error) {
+      console.log(error);
+    }
+})
+app.get("/getAllReports",async (req, res) => {
+    try {
+      const  allUser=await File.find();
       res.send({status:"ok",data:allUser});
     } catch (error) {
       console.log(error);

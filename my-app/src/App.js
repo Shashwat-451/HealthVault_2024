@@ -14,6 +14,8 @@ import Appointments from './Appointments';
 import Navbar from './Components/Navbar';
 import QRCodeGen2 from './Components/QRCodeGen2';
 import QRLanding from './Components/QRLanding';
+import MedicalRecordForm from './Components/MedicalRecordForm';
+import PatientData2 from './Components/PatientData2';
 function App() {
 
   return (
@@ -27,8 +29,10 @@ function App() {
         <Route path="/" element={<Home/>}/>
 
         <Route path="/articles" element={<Articles/>}/>
-        <Route path="/medform" element={<MedicalForm/>}/> 
-        <Route path="/patientdata" element={<PatientData/>}/>
+        <Route path="/medform" element={<MedicalRecordForm/>}/> 
+        {/* <Route path="/medrecordform" element={<MedicalForm/>}/>  */}
+        <Route path="/patientdata" element={<PatientData2/>}/>
+        {/* <Route path="/patientdata2" element={<PatientData/>}/> */}
         <Route path="/qr" element={<QrCodeGenerator/>}/>
         <Route path="/qrlanding/:param1/:param2" element={<QRLanding/>}/>
         <Route path="/login" element={<LoginPage/>}/>
