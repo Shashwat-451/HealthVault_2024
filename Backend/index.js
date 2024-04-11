@@ -225,7 +225,77 @@ console.log(existinguser)
     Patient.findOne({ email: email })
       .then((existingUser) => {
         if (existingUser) {
-          res.send({ message: "User already registered" });
+          // res.send({ message: "User already registered" });
+          if(fullName!='')
+          existingUser.fullName=fullName
+          if(dateOfBirth!='')
+          existingUser.dateOfBirth=dateOfBirth
+          if(gender!='')
+          existingUser.gender=gender
+          if(address!='')
+          existingUser.address=address
+          if(phoneNumber!='')
+          existingUser.phoneNumber= phoneNumber
+          if(email!='')
+          existingUser.email=email
+          if(allergies!='')
+          existingUser.allergies=allergies
+          if(medicalHistory!='')
+          existingUser.medicalHistory=medicalHistory
+          if(familyHistory!='')
+          existingUser.familyHistory=familyHistory
+          if(surgeries!='')
+          existingUser.surgeries=surgeries
+          if(Immunizations!='')
+          existingUser.Immunizations=Immunizations
+          if(medications!='')
+          existingUser.medications=medications
+          if(hospitalizations!='')
+          existingUser.hospitalizations=hospitalizations
+          if(bloodPressure!='')
+          existingUser.bloodPressure=bloodPressure
+          if(heartRate!='')
+          existingUser.heartRate=heartRate
+          if(respiratoryRate!='')
+          existingUser.respiratoryRate=respiratoryRate
+          if(bodyTemperature!='')
+          existingUser.bodyTemperature=bodyTemperature
+          if(progressNotes!='')
+          existingUser.progressNotes=progressNotes
+          if(insuranceProvider!='')
+          existingUser.insuranceProvider=insuranceProvider
+          if(policyNumber!='')
+          existingUser.policyNumber=policyNumber
+          if(copaymentInfo!='')
+          existingUser.copaymentInfo=copaymentInfo
+          if(emergencyContacts!='')
+          existingUser.emergencyContacts=emergencyContacts
+          if(lifeStyleHabits!='')
+          existingUser.lifeStyleHabits=lifeStyleHabits
+          if(occupationalHistory!='')
+          existingUser.occupationalHistory=occupationalHistory
+          if(dietaryPreferences!='')
+          existingUser.dietaryPreferences=dietaryPreferences
+          if( bloodGroup!='')
+          existingUser. bloodGroup= bloodGroup
+          if(labResults!='')
+          existingUser.labResults=labResults
+          if(imagingReports!='')
+          existingUser.imagingReports=imagingReports
+          if(ecgReports!='')
+          existingUser.ecgReports=ecgReports
+          if(biopsyResults!='')
+          existingUser.biopsyResults=biopsyResults
+
+          existingUser.save().then(emp => {
+            res.json('Record Updated Successfully');
+            })
+            .catch(err => {
+            res.status(400).send("Unable To Update Record");
+            });
+
+
+
         } else {
           const patient = new Patient({
             fullName,

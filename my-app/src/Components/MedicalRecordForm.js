@@ -203,7 +203,7 @@ function MedicalRecordForm() {
 
 
 
-                    <input placeholder='Email' type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+                    <input required placeholder='Email' type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
 
                 </div>
                 {/* Medical History */}
@@ -214,7 +214,7 @@ function MedicalRecordForm() {
 
 
 
-                    <textarea placeholder='Medical Condition' id="medicalConditions" name="medicalConditions" value={formData.medicalConditions} onChange={handleChange}></textarea>
+                    <textarea placeholder='Medical Condition ' id="medicalConditions" name="medicalConditions" value={formData.medicalConditions} onChange={handleChange}></textarea>
 
 
 
@@ -259,14 +259,11 @@ function MedicalRecordForm() {
                 {/* Diagnostic Test Results */}
 
                 {/* Doctor's Notes and Consultation Reports */}
-                <div className="section-heading">Doctor's Notes and Consultation Reports
+                <div className="section-heading">Doctor's Notes
 
 
                     <textarea placeholder='Progress Notes:' id="progressNotes" name="progressNotes" value={formData.progressNotes} onChange={handleChange}></textarea>
 
-
-
-                    <textarea placeholder='Consultation Reports:' id="consultationReports" name="consultationReports" value={formData.consultationReports} onChange={handleChange}></textarea>
 
                 </div>
                 {/* Insurance Information */}
