@@ -21,26 +21,18 @@ function App() {
   return (
   <BrowserRouter>
     <>
-    <Navbar/>
+    
     <Routes>
 
-        {/* */}
-       
         <Route path="/" element={<Home/>}/>
-
-        <Route path="/articles" element={<Articles/>}/>
         <Route path="/medform" element={<MedicalRecordForm/>}/> 
-        {/* <Route path="/medrecordform" element={<MedicalForm/>}/>  */}
         <Route path="/patientdata" element={<PatientData2/>}/>
-        {/* <Route path="/patientdata2" element={<PatientData/>}/> */}
         <Route path="/qr" element={<QrCodeGenerator/>}/>
         <Route path="/qrlanding/:param1/:param2" element={<QRLanding/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/appointments" element={<Appointments/>}/>
-        {/* <Route path="/mumbai" element={<Home2Upper/>}/>
-        <Route path="/delhi" element={<Delhi/>}/>
-        <Route path="/kolkata" element={<Kolkata/>}/> */}
+       
       
       </Routes>
     </>

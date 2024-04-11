@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './MedicalRecordForm.css'
+import Navbar from './Navbar';
 function MedicalRecordForm() {
     const [labResults, setlabResults] = useState(null);
     const [imagingReports, setimagingReports] = useState(null);
@@ -174,6 +175,8 @@ function MedicalRecordForm() {
 
     // Inside the MedicalRecordForm component
     return (
+        <>
+        <Navbar/>
         <div className="medical-record-form">
             <h1>Personal Health Record Form</h1>
             <form onSubmit={handleSubmit}>
@@ -340,6 +343,7 @@ function MedicalRecordForm() {
 
             </form>
         </div>
+        </>
     );
 
 }

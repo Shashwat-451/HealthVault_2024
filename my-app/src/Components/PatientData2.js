@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import './PatientData2.css'
 import { IoIosArrowDown } from "react-icons/io";
 import FileDownload from './FileDownload';
+import Navbar from './Navbar';
 function PatientData2() {
 
     const [personal, setPersonal] = useState(false);
@@ -48,6 +49,9 @@ function PatientData2() {
 
 
     return (
+        <>
+        
+       <Navbar/>
         <div>
             <div className='parentContainer'>
             <h1 style={{marginTop:"40px",marginBottom:"20px"}} className="Logo">
@@ -63,11 +67,11 @@ function PatientData2() {
                     {
 
                         personal && <div className='lower'> <p>Name : {data.fullName}</p>
-                            <p>DOB : {data[0].dateOfBirth}</p>
-                            <p>Gender : {data[0].gender}</p>
-                            <p>Address : {data[0].address}</p>
-                            <p>Contact : {data[0].phoneNumber}</p>
-                            <p>Email : {data[0].email}</p>
+                            <p>DOB : {data && data[0]?data[0].dateOfBirth:''}</p>
+                            <p>Gender : {data && data[0]?data[0].gender:''}</p>
+                            <p>Address : {data && data[0]?data[0].address:''}</p>
+                            <p>Contact : {data && data[0]?data[0].phoneNumber:''}</p>
+                            <p>Email : {data && data[0]?data[0].email:''}</p>
 
                         </div>
                     }
@@ -81,13 +85,13 @@ function PatientData2() {
                     </div>
                     {
                         medical && <div className='lower'>
-                            <p>Allergies: {data[0].allergies}</p>
-                            <p>Medical Condition: {data[0].medicalConditions}</p>
-                            <p>Family History: {data[0].familyHistory}</p>
-                            <p>Surgeries: {data[0].surgeries}</p>
-                            <p>Immunizations: {data[0].immunizations}</p>
-                            <p>Medications: {data[0].medications}</p>
-                            <p>Hospitalizations: {data[0].hospitalizations}</p>
+                            <p>Allergies: {data && data[0]?data[0].allergies:''}</p>
+                            <p>Medical Condition: {data && data[0]?data[0].medicalConditions:''}</p>
+                            <p>Family History: {data && data[0]?data[0].familyHistory:''}</p>
+                            <p>Surgeries: {data && data[0]?data[0].surgeries:''}</p>
+                            <p>Immunizations: {data && data[0]?data[0].immunizations:''}</p>
+                            <p>Medications: {data && data[0]?data[0].medications:''}</p>
+                            <p>Hospitalizations: {data && data[0]?data[0].hospitalizations:''}</p>
 
                         </div>
                     } </div>
@@ -99,22 +103,22 @@ function PatientData2() {
                     </div>
                     {
                         vital && <div className='lower'>
-                            <p>Blood Pressure: {data[0].bloodPressure}</p>
-                            <p>Heart Rate: {data[0].heartRate}</p>
-                            <p>Respiratory Rate: {data[0].respiratoryRate}</p>
-                            <p>Body Temperature: {data[0].bodyTemperature}</p>
+                            <p>Blood Pressure: {data && data[0]?data[0].bloodPressure:''}</p>
+                            <p>Heart Rate: {data && data[0]?data[0].heartRate:''}</p>
+                            <p>Respiratory Rate: {data && data[0]?data[0].respiratoryRate:''}</p>
+                            <p>Body Temperature: {data && data[0]?data[0].bodyTemperature:''}</p>
                         </div>
                     } </div>
                 <div className="accordian_wrapper">
 
                     <div onClick={() => setDoctors(!doctors)} className='upper doctors'>
-                        <h3>Doctor's Notes and Consultation Reports</h3>
+                        <h3>Doctor's Notes</h3>
                         <div style={{ fontSize: "15px" }}> <IoIosArrowDown /></div>
                     </div>
                     {
                         doctors && <div className='lower'>
-                            <p>Progress Notes: {data[0].progressNotes}</p>
-                            <p>Consultation Reports: {data[0].consultationReports}</p>
+                            <p>Progress Notes: {data && data[0]?data[0].progressNotes:''}</p>
+                            {/* <p>Consultation Reports: {data[0].consultationReports}</p> */}
                         </div>
                     }   </div>
                 <div className="accordian_wrapper">
@@ -125,9 +129,9 @@ function PatientData2() {
                     </div>
                     {
                         insurance && <div className='lower'>
-                            <p>Insurance Provider: {data[0].insuranceProvider}</p>
-                            <p>Policy Number: {data[0].policyNumber}</p>
-                            <p>Copayment Info: {data[0].copaymentInfo}</p>
+                            <p>Insurance Provider: {data && data[0]?data[0].insuranceProvider:''}</p>
+                            <p>Policy Number: {data && data[0]?data[0].policyNumber:''}</p>
+                            <p>Copayment Info: {data && data[0]?data[0].copaymentInfo:''}</p>
 
                         </div>
                     } </div>
@@ -139,7 +143,7 @@ function PatientData2() {
                     </div>
                     {
                         emergencyContacts && <div className='lower'>
-                            <p>Emergency Contacts: {data[0].emergencyContacts}</p>
+                            <p>Emergency Contacts: {data && data[0]?data[0].emergencyContacts:''}</p>
                         </div>
                     } </div>
                 <div className="accordian_wrapper">
@@ -150,10 +154,10 @@ function PatientData2() {
                     </div>
                     {
                         others && <div className='lower'>
-                            <p>Lifestyle Habits: {data[0].lifestyleHabits}</p>
-                            <p>Occupational History: {data[0].occupationalHistory}</p>
-                            <p>Dietary Preferences: {data[0].dietaryPreferences}</p>
-                            <p>Blood Group: {data[0].bloodGroup}</p>
+                            <p>Lifestyle Habits: {data && data[0]?data[0].lifestyleHabits:''}</p>
+                            <p>Occupational History: {data && data[0]?data[0].occupationalHistory:''}</p>
+                            <p>Dietary Preferences: {data && data[0]?data[0].dietaryPreferences:''}</p>
+                            <p>Blood Group: {data && data[0]?data[0].bloodGroup:''}</p>
                         </div>
                     } </div>
                 <div style={{marginBottom:"40px"}} className="accordian_wrapper">
@@ -179,6 +183,8 @@ function PatientData2() {
 
             </div>
         </div>
+
+        </>
     )
 }
 

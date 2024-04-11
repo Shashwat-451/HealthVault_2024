@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import QRCode from 'qrcode.react';
 import './QRCode.css';
+import Navbar from './Navbar';
 
 const QrCodeGenerator = () => {
 const [user,setUser]=useState({})
@@ -30,6 +31,7 @@ const [user,setUser]=useState({})
 
   return (
     <>
+    <Navbar/>
   <div className='cont'>
   <h1>QR Code</h1>
       <div className='row'>
