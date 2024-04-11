@@ -35,7 +35,7 @@
     margin-top: 30px;
     padding: 10px;
     cursor:pointer;
-    width: 60%;
+    width: 70%;
     background-color: white;
 
   padding: 1rem;
@@ -60,7 +60,7 @@
     margin: 0px;
     padding: 10px;
     cursor:pointer;
-    width: 60%;
+    width: 70%;
     background-color: white;
 
   padding: 1rem;
@@ -133,3 +133,13 @@ span{
 .upper h3{
     font-weight: bold;
 }
+
+@media (max-width: 768px) {
+
+    .lower{
+        width: 90%;
+    }
+    .upper{
+        width: 90%;
+    }
+ }
